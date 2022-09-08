@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>moving cat</title>
+<style type="text/css">
+    .bg_img{
+    background-image: url(./bg.svg);
+    background-repeat: no-repeat;           
+    background-size:contain;
+    height:680px;
+    }
+    .img1{
+        transform: scale(1, 1);
+    }
+</style>
+<body>
+    <div class="bg_img"></div>
+    <img src="dl.png" class="img1" style="position:absolute;top:0;left:0">
+    <button class="start">start</button>
+    <button class="stop">stop</button>
+    <!-- include Javascript -->
+    <script src="./control.js" type="module" defer></script>
+    </body>
+</html>
