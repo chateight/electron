@@ -6,6 +6,8 @@ let dir_x = 1, dir_y = 1;       // moving direction(1 or -1)
 let int_id;         // setInterval ID
 const step = 5;
 const pos = document.querySelector(".img1");    // "image" selector
+const start = document.querySelector(".start"); // "start button" selector
+const stop = document.querySelector(".stop");   // "stop button" selector
 //
 // interval timer start function
 const tmr = () => {
@@ -27,7 +29,5 @@ function move(){
 }
 //
 // start from here
-let start = document.querySelector(".start");
-let stop = document.querySelector(".stop");
 start.addEventListener("click", tmr);
 stop.addEventListener("click", () => clearInterval(int_id));
