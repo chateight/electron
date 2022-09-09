@@ -7,9 +7,11 @@ let x = 1;          // position integer
 let y = 1;
 let x_px = "";      // position string "px"
 let y_px = "";
-let dir_x = 1;      // moving direction
+let dir_x = 1;      // moving direction(1 or -1)
 let dir_y = 1;
 let int_id;         // setInterval ID
+const step = 5;
+let scale_str;
 //
 // interval timer start function
 const tmr = () => {
@@ -19,41 +21,27 @@ const tmr = () => {
 //
 // move function
 function move(){
-    const pos = document.querySelector(".img1");         
-    if(dir_x === 1) {
-        x_px = x.toString() + "px";                   
-        pos.style.left = x_px;
-        x += 5;
+    const pos = document.querySelector(".img1");
+    x_px = x.toString() + "px";                   
+    pos.style.left = x_px;
+    y_px = y.toString() + "px";
+    pos.style.top = y_px;
+    //         
+    (dir_x === 1) ? x += step: x -= step;
         if(x >= xmax) {
-            dir_x = 0;
-            pos.style.transform = "scale(-1, 1)";       // reverse the sprite
-        }
-    }
-    if(dir_x === 0) {                   
-        x_px = x.toString() + "px"; 
-        pos.style.left = x_px;
-        x -= 5;
-        if(x <= xmin) {
+            dir_x = -1;
+        }else if(x <= xmin) {
             dir_x = 1;
-            pos.style.transform = "scale(1, 1)";
         }
-    }
-    if(dir_y == 1) {            
-        y_px = y.toString() + "px";
-        pos.style.top = y_px;    
-        y += 5;
+    //
+    (dir_y === -1) ? y += step: y -= step;
         if(y >= ymax) {
-            dir_y = 0;
-        }
-    }
-    if(dir_y == 0) {     
-        y_px = y.toString() + "px";
-        pos.style.top = y_px;            
-        y -= 5;
-        if(y <= ymin) {
             dir_y = 1;
+        }else if(y <= ymin) {
+            dir_y = -1;
         }
-    }
+    scale_str = "scale(" + dir_x + "," + dir_y + ")";
+    pos.style.transform = scale_str;
 }
 //
 // start from here
