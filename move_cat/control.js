@@ -17,14 +17,14 @@ const tmr = () => {
 //
 // move function to control the cat position
 function move(){                      
-    pos.style.left = x.toString() + "px";
-    pos.style.top = y.toString() + "px";
-    //         
+    pos.style.left = x + "px";
+    pos.style.top = y + "px";
+    //
     (dir_x === 1) ? x += step: x -= step;
-    (x >= xmax) ? dir_x = -1:(x <= xmin) ? dir_x = 1:{};               
+    (x >= xmax) ? dir_x = -1: (x <= xmin) ? dir_x = 1:{};          
     //
     (dir_y === -1) ? y += step: y -= step;
-    (y >= ymax) ? dir_y = 1:(y <= ymin) ? dir_y = -1:{};        
+    (y >= ymax) ? dir_y = 1: (y <= ymin) ? dir_y = -1:{};        
     pos.style.transform = "scale(" + dir_x + "," + dir_y + ")";
 }
 //
