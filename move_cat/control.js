@@ -1,5 +1,5 @@
 // constnt & variables
-const xmin = 0, ymin = 0;         // set moving area     
+const xmin = 0, ymin = 0;       // set moving area     
 const xmax = 800, ymax = 350;                
 let x = 1, y = 1;               // position integer
 let x_px = "", y_px = "";       // position string "px"
@@ -9,11 +9,11 @@ const step = 5;
 //
 // interval timer start function
 const tmr = () => {
-    int_id = setInterval(move,20);                  // "int_id" for clear "clearInterval"
+    int_id = setInterval(move,20);                  // "int_id" for clear the listner
     start.removeEventListener("click", tmr);        // stop the listener
 }
 //
-// move function
+// move function to control the cat location
 function move(){
     const pos = document.querySelector(".img1");
     x_px = x.toString() + "px";                   
