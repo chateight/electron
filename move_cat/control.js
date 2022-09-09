@@ -1,17 +1,11 @@
 // constnt & variables
-let xmin = 0;       // set moving area
-let ymin = 0;        
-let xmax = 800;        
-let ymax = 350;        
-let x = 1;          // position integer
-let y = 1;
-let x_px = "";      // position string "px"
-let y_px = "";
-let dir_x = 1;      // moving direction(1 or -1)
-let dir_y = 1;
+const xmin = 0, ymin = 0;         // set moving area     
+const xmax = 800, ymax = 350;                
+let x = 1, y = 1;               // position integer
+let x_px = "", y_px = "";       // position string "px"
+let dir_x = 1, dir_y = 1;       // moving direction(1 or -1)
 let int_id;         // setInterval ID
 const step = 5;
-let scale_str;
 //
 // interval timer start function
 const tmr = () => {
@@ -40,8 +34,7 @@ function move(){
         }else if(y <= ymin) {
             dir_y = -1;
         }
-    scale_str = "scale(" + dir_x + "," + dir_y + ")";
-    pos.style.transform = scale_str;
+    pos.style.transform = "scale(" + dir_x + "," + dir_y + ")";
 }
 //
 // start from here
