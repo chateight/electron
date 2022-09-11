@@ -2,6 +2,7 @@ node_modules
 *arm64
 *.png
 *.svg
-
+node_modules
+*.json
 
 
