@@ -30,7 +30,7 @@ let MouseConstraint = Matter.MouseConstraint,
 var engine = Engine.create();
 
 // set the gravity
-engine.world.gravity.y = 0.01;
+engine.world.gravity.y = 0.1;
 engine.world.gravity.x = 0;
 
 // create a renderer
@@ -41,7 +41,7 @@ let render = Render.create({
     options:{
         width: engWidth,
         height: engHeight,
-        wireframes: false,
+        wireframes: false,              // set the world transparent
         background: 'transparent'
     }
 });
