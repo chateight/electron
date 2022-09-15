@@ -4,5 +4,7 @@ node_modules
 *.svg
 node_modules
 *.json
+.DS_Store
+.gitignore
 
 
