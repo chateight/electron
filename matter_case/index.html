@@ -15,6 +15,9 @@
 //var Matter = require('../matter.js');
 const engWidth = 800;
 const engHeight = 720;
+var gravity_x = 0.5;
+var gravity_y = 0.5;
+
 let objs =[];   // to store the created materials
 
 let Engine = Matter.Engine,
@@ -30,7 +33,7 @@ let MouseConstraint = Matter.MouseConstraint,
 var engine = Engine.create();
 
 // set the gravity
-engine.world.gravity.y = 0.1;
+engine.world.gravity.y = 0.5;
 engine.world.gravity.x = 0;
 
 // create a renderer
@@ -64,7 +67,12 @@ objs.push(mouseConstraint);
 let obj1 = Bodies.circle(100, 100, 35, {restitution: 1});       // set the restitution coeffecient
 Matter.Body.setVelocity(obj1, {x : 5 , y : 10});                // set initial velocity
 objs.push(obj1);
-objs.push(Bodies.circle(200, 100, 35, {restitution: 1}));
+let obj2 = Bodies.circle(200, 100, 35, {restitution: 1});
+Matter.Body.setVelocity(obj2, {x : 5 , y : 10}); 
+objs.push(obj2);
+let obj3 = Bodies.circle(200, 100, 35, {restitution: 1});
+Matter.Body.setVelocity(obj3, {x : 5 , y : 10}); 
+objs.push(obj3);
 objs.push(Bodies.rectangle(400, 200, 80, 80));
 objs.push(Bodies.rectangle(440, 50, 80, 80));
 objs.push(Bodies.rectangle(360, 50, 80, 80));
@@ -84,6 +92,23 @@ let runner = Runner.create();
 
 // run the engine
 Runner.run(runner, engine);
+
+// change the gravity randomly
+let update = function(){                
+      if(Math.random() > 0.5){
+        gravity_y *= -1;
+      }
+      if(Math.random() > 0.5){
+        gravity_x *= -1;
+      }
+      engine.world.gravity.y = gravity_y;
+      engine.world.gravity.x = gravity_x;
+      Matter.Body.setVelocity(obj1, {x : 5 , y : 10});
+      Matter.Body.setVelocity(obj2, {x : 5 , y : 10});
+      Matter.Body.setVelocity(obj3, {x : 5 , y : 10});
+    }
+ 
+setInterval(update, 1000);
 
 </script>
 </html>
