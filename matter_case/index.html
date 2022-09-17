@@ -23,6 +23,7 @@ let objs =[];   // to store the created materials
 let Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
+    Body = Matter.Body,
     Bodies = Matter.Bodies,
     Composite = Matter.Composite;
 
@@ -65,13 +66,13 @@ objs.push(mouseConstraint);
 
 // create boxes, a circle and a ground
 let obj1 = Bodies.circle(100, 100, 35, {restitution: 1});       // set the restitution coeffecient
-Matter.Body.setVelocity(obj1, {x : 5 , y : 10});                // set initial velocity
+Body.setVelocity(obj1, {x : 5 , y : 10});                // set initial velocity
 objs.push(obj1);
 let obj2 = Bodies.circle(200, 100, 35, {restitution: 1});
-Matter.Body.setVelocity(obj2, {x : 5 , y : 10}); 
+Body.setVelocity(obj2, {x : 5 , y : 10}); 
 objs.push(obj2);
 let obj3 = Bodies.circle(200, 100, 35, {restitution: 1});
-Matter.Body.setVelocity(obj3, {x : 5 , y : 10}); 
+Body.setVelocity(obj3, {x : 5 , y : 10}); 
 objs.push(obj3);
 objs.push(Bodies.rectangle(400, 200, 80, 80));
 objs.push(Bodies.rectangle(440, 50, 80, 80));
@@ -103,9 +104,9 @@ let update = function(){
       }
       engine.world.gravity.y = gravity_y;
       engine.world.gravity.x = gravity_x;
-      Matter.Body.setVelocity(obj1, {x : 5 , y : 10});
-      Matter.Body.setVelocity(obj2, {x : 5 , y : 10});
-      Matter.Body.setVelocity(obj3, {x : 5 , y : 10});
+      Body.setVelocity(obj1, {x : 5 , y : 10});
+      Body.setVelocity(obj2, {x : 5 , y : 10});
+      Body.setVelocity(obj3, {x : 5 , y : 10});
     }
  
 setInterval(update, 1000);
