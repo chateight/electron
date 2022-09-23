@@ -4,4 +4,4 @@
 
 - first_project : "hello world of the Electron"
 
-- 
+- root directory : Scratch like Javascript sample
